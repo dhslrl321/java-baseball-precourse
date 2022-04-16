@@ -1,7 +1,12 @@
 package baseball;
 
+import baseball.io.MenuConsole;
+import baseball.presenter.GameFinder;
+import baseball.presenter.Menu;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Menu menu = Menu.of(new MenuConsole(), new GameFinder());
+        while(menu.loop());
     }
 }
