@@ -7,7 +7,11 @@ public class Menu {
     private final MenuConsole console;
     private final Game game;
 
-    public Menu(MenuConsole console, GameFinder gameFinder) {
+    public static Menu of(MenuConsole console, GameFinder gameFinder) {
+        return new Menu(console, gameFinder);
+    }
+
+    private Menu(MenuConsole console, GameFinder gameFinder) {
         this.console = console;
         this.game = gameFinder.findBy(1);
     }

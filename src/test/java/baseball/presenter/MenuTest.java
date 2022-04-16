@@ -2,29 +2,26 @@ package baseball.presenter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
 import baseball.core.BaseballGame;
-import baseball.core.Game;
 import baseball.io.MenuConsole;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 class MenuTest {
 
     Menu sut;
 
     MenuConsole console = mock(MenuConsole.class);
-    GameFinder gameFinder = new GameFinder();
+    GameFinder gameFinder = mock(GameFinder.class);
 
     @BeforeEach
     void setUp() {
-        sut = new Menu(console, gameFinder);
+        BaseballGame game = mock(BaseballGame.class);
+        given(gameFinder.findBy(1)).willReturn(game);
+        sut = Menu.of(console, gameFinder);
     }
 
     @Test
