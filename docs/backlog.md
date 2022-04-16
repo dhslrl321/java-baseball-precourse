@@ -2,7 +2,7 @@
 
 진행된 Task 와 진행 해야할 Task 에 대해서 Checkbox 로 확인할 수 있습니다
 
-- [x] `BL-001` 
+- [x] `BL-001`
 - [x] `BL-002`
 - [x] `BL-003`
 - [x] `BL-004`
@@ -26,7 +26,9 @@
   - Intellij 에 Code-Style 을 적용한다
 - `BL-005`
   - Presenter 모듈에 대해서 구현한다.
+  - [github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/1)
 - `BL-006`
   - BaseballGame 의 입출력 모듈을 구현한다.
+  - [github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/3)
 - `BL-007`
   - BaseballGame 에 대해서 구현한다.
