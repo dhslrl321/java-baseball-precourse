@@ -21,9 +21,11 @@
 
 ## Domain
 
-![domain](https://github.com/dhslrl321/java-baseball-precourse)
+![domain](https://github.com/dhslrl321/java-baseball-precourse/blob/master/docs/images/domain.png)
 
-## Class Diagram
+## Domain Modeling
+
+![domain](https://github.com/dhslrl321/java-baseball-precourse/blob/master/docs/images/domain-modeling.png)
 
 # 자료
 
