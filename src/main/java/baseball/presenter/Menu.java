@@ -4,12 +4,12 @@ import baseball.core.Game;
 import baseball.io.MenuConsole;
 
 public class Menu {
-    private final MenuConsole console = new MenuConsole();
-    private final GameFinder gameFinder = new GameFinder();
+    private final MenuConsole console;
     private final Game game;
 
-    public Menu() {
-        game = gameFinder.findBy(1);
+    public Menu(MenuConsole console, GameFinder gameFinder) {
+        this.console = console;
+        this.game = gameFinder.findBy(1);
     }
 
     public boolean loop() {
