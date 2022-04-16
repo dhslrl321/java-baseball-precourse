@@ -5,8 +5,10 @@
 - [x] `BL-001` 
 - [x] `BL-002`
 - [x] `BL-003`
-- [ ] `BL-004`
-- [ ] `BL-005`
+- [x] `BL-004`
+- [x] `BL-005`
+- [x] `BL-006`
+- [ ] `BL-007`
 
 # Backlog
 
@@ -25,4 +27,6 @@
 - `BL-005`
   - Presenter 모듈에 대해서 구현한다.
 - `BL-006`
-  - Baseball Game 에 대해서 구현한다.
+  - BaseballGame 의 입출력 모듈을 구현한다.
+- `BL-007`
+  - BaseballGame 에 대해서 구현한다.
