@@ -22,3 +22,7 @@
   - 도메인을 토대로 클래스 설계를 한다.
 - `BL-004`
   - Intellij 에 Code-Style 을 적용한다
+- `BL-005`
+  - Presenter 모듈에 대해서 구현한다.
+- `BL-006`
+  - Baseball Game 에 대해서 구현한다.
