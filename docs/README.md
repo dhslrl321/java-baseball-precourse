@@ -29,7 +29,7 @@
 
 # 자료
 
-- ### [백로그](https://github.com/dhslrl321)
-- ### [Ground-Rule](https://github.com/dhslrl321)
+- ### [백로그](https://github.com/dhslrl321/java-baseball-precourse/blob/master/docs/backlog.md)
+- ### [Ground-Rule](https://github.com/dhslrl321/java-baseball-precourse/blob/master/docs/ground-rule.md)
 
 
