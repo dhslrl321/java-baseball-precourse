@@ -15,10 +15,10 @@ public class InputReader {
         return Integer.parseInt(numberString);
     }
 
-    public List<Integer> readNumbersWithSpace() {
+    public List<Integer> readNumbersWithNoSpace() {
 
         String input = Console.readLine();
-        String[] numberString = input.split(" ");
+        String[] numberString = input.split("");
 
         List<Integer> numbers = new ArrayList<>();
 
