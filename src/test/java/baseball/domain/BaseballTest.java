@@ -28,7 +28,7 @@ class BaseballTest {
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
 
-        assertThat(result.judgements()).contains(NONE, NONE, NONE);
+        assertThat(result.judgements().size()).isEqualTo(0);
     }
 
     @Test
@@ -38,7 +38,8 @@ class BaseballTest {
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
 
-        assertThat(result.judgements()).contains(STRIKE, NONE, NONE);
+        assertThat(result.judgements()).contains(STRIKE);
+        assertThat(result.judgements().size()).isEqualTo(1);
     }
 
     @Test
@@ -48,7 +49,8 @@ class BaseballTest {
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
 
-        assertThat(result.judgements()).contains(STRIKE, NONE, STRIKE);
+        assertThat(result.judgements()).contains(STRIKE, STRIKE);
+        assertThat(result.judgements().size()).isEqualTo(2);
     }
 
     @Test
@@ -59,6 +61,7 @@ class BaseballTest {
         Result result = sut.compareFrom(userShot);
 
         assertThat(result.judgements()).contains(STRIKE, STRIKE, STRIKE);
+        assertThat(result.judgements().size()).isEqualTo(3);
     }
 
     @Test
@@ -68,7 +71,8 @@ class BaseballTest {
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
 
-        assertThat(result.judgements()).contains(NONE, BALL, BALL);
+        assertThat(result.judgements()).contains(BALL, BALL);
+        assertThat(result.judgements().size()).isEqualTo(2);
     }
 
     private List<Integer> createMockNumbersBy(Integer ...integers) {
