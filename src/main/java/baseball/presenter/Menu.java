@@ -14,7 +14,8 @@ public class Menu {
     }
 
     public boolean loop() {
-        while (game.run()) ;
+        while (game.run())
+            ;
         return false;
     }
 }

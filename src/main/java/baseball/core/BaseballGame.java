@@ -53,6 +53,7 @@ public class BaseballGame implements Game {
             resultHandler.flush();
         }
     }
+
     private UserShot getUserShot() {
         List<Integer> inputs = console.queryStartGame();
         validateUserInput(inputs.size());
