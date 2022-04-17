@@ -9,13 +9,8 @@ import java.util.List;
 
 public class ResultMessageHandler {
 
-    private int ballCount = 0;
-    private int strikeCount = 0;
-
-    private void flush() {
-        ballCount = 0;
-        strikeCount = 0;
-    }
+    private int ballCount;
+    private int strikeCount;
 
     public String convertToMessage(Result result) {
         flush();
@@ -32,6 +27,11 @@ public class ResultMessageHandler {
         }
 
         return singleResult();
+    }
+
+    private void flush() {
+        ballCount = 0;
+        strikeCount = 0;
     }
 
     private String singleResult() {
