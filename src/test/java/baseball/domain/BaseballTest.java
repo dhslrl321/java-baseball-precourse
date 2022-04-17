@@ -1,7 +1,6 @@
 package baseball.domain;
 
 import static baseball.domain.JudgementType.BALL;
-import static baseball.domain.JudgementType.NONE;
 import static baseball.domain.JudgementType.STRIKE;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -75,7 +74,7 @@ class BaseballTest {
         assertThat(result.judgements().size()).isEqualTo(2);
     }
 
-    private List<Integer> createMockNumbersBy(Integer ...integers) {
+    private List<Integer> createMockNumbersBy(Integer... integers) {
         return new ArrayList<>(Arrays.asList(integers));
     }
 }

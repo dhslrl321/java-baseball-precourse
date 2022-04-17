@@ -1,21 +1,12 @@
 package baseball.core;
 
-import static baseball.domain.JudgementType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 import baseball.domain.Baseball;
-import baseball.domain.JudgementType;
-import baseball.domain.Result;
-import baseball.domain.UserShot;
 import baseball.io.BaseballConsole;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
