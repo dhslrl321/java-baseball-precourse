@@ -25,20 +25,31 @@ public class Baseball {
 
         for (int i = 0; i < randoms.size(); i++) {
             Integer randomNumber = randoms.get(i);
-            handleResult(result, randomNumber, numbers, i);
+            addJudgementToResult(result, randomNumber, numbers, i);
         }
         return result;
     }
 
-    private void handleResult(Result result, int randomNumber, List<Integer> numbers, int index) {
+    private void addJudgementToResult(
+            Result result,
+            int randomNumber,
+            List<Integer> numbers,
+            int index) {
+
         for (int i = 0; i < numbers.size(); i++) {
             Integer inputNumber = numbers.get(i);
-            judge(result, randomNumber, inputNumber, i, index);
+            addValidJudgementToResult(result, randomNumber, inputNumber, i, index);
         }
         result.add(JudgementType.NONE);
     }
 
-    private void judge(Result result, int randomNumber, int inputNumber, int index1, int index2) {
+    private void addValidJudgementToResult(
+            Result result,
+            int randomNumber,
+            int inputNumber,
+            int index1,
+            int index2) {
+
         if (randomNumber == inputNumber) {
             JudgementType judgementByIndex = getValidJudgement(index1, index2);
             result.add(judgementByIndex);
