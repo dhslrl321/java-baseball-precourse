@@ -33,11 +33,12 @@ class BaseballGameTest {
     }
 
     @Test
-    void 사용자의_입력과_랜덤한_수가_같을_때만_종료한다() {
+    void 스트라이크3_이후_사용자가_2를_누르면_종료된다() {
         Baseball baseball = mock(Baseball.class);
 
         given(baseballCreator.create()).willReturn(baseball);
         given(handler.convertToMessage(any())).willReturn("3스트라이크");
+        given(console.queryRestartGame()).willReturn(2);
 
         boolean run = sut.run();
 

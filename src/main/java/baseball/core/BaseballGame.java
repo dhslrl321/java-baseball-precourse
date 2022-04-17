@@ -34,8 +34,7 @@ public class BaseballGame implements Game {
     public boolean run() {
         Baseball baseball = baseballCreator.create();
         while (true) {
-            List<Integer> inputs = console.queryStartGame();
-            UserShot userShot = UserShot.from(inputs);
+            UserShot userShot = getUserShot();
 
             Result result = baseball.compareFrom(userShot);
             String message = resultHandler.convertToMessage(result);
@@ -47,12 +46,22 @@ public class BaseballGame implements Game {
                 int restartNumber = console.queryRestartGame();
                 if (restartNumber == 2) {
                     return false;
-                } else {
-                    resultHandler.flush();
-                    return true;
                 }
+                resultHandler.flush();
+                return true;
             }
             resultHandler.flush();
+        }
+    }
+    private UserShot getUserShot() {
+        List<Integer> inputs = console.queryStartGame();
+        validateUserInput(inputs.size());
+        return UserShot.from(inputs);
+    }
+
+    private void validateUserInput(int size) {
+        if (size > 3) {
+            throw new IllegalArgumentException("입력이 잘못되었습니다. 3자리 숫자만 입력할 수 있습니다.");
         }
     }
 }
