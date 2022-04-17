@@ -1,11 +1,11 @@
 package baseball.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Baseball {
 
     private final List<Integer> randoms;
+    private final Result result = Result.empty();
 
     private Baseball(List<Integer> randoms) {
         this.randoms = randoms;
@@ -20,25 +20,44 @@ public class Baseball {
     }
 
     public Result compareFrom(UserShot userShot) {
-        Result result = new Result();
 
         List<Integer> numbers = userShot.getNumbers();
 
         for (int i = 0; i < randoms.size(); i++) {
             Integer randomNumber = randoms.get(i);
-            for (int j = 0; j < numbers.size(); j++) {
-                Integer inputNumber = numbers.get(j);
-
-                if (randomNumber.equals(inputNumber)) {
-                    if (i == j) {
-                        result.add(JudgementType.STRIKE);
-                        continue;
-                    }
-                    result.add(JudgementType.BALL);
-                }
-            }
-            result.add(JudgementType.NONE);
+            addJudgementToResult(randomNumber, numbers, i);
         }
         return result;
+    }
+
+    private void addJudgementToResult(
+            int randomNumber,
+            List<Integer> numbers,
+            int index) {
+
+        for (int i = 0; i < numbers.size(); i++) {
+            Integer inputNumber = numbers.get(i);
+            addValidJudgementToResult(randomNumber, inputNumber, i, index);
+        }
+        result.add(JudgementType.NONE);
+    }
+
+    private void addValidJudgementToResult(
+            int randomNumber,
+            int inputNumber,
+            int index1,
+            int index2) {
+
+        if (randomNumber == inputNumber) {
+            JudgementType judgementByIndex = getValidJudgement(index1, index2);
+            result.add(judgementByIndex);
+        }
+    }
+
+    private JudgementType getValidJudgement(int index1, int index2) {
+        if (index1 == index2) {
+            return JudgementType.STRIKE;
+        }
+        return JudgementType.BALL;
     }
 }

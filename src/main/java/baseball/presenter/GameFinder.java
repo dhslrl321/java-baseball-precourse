@@ -1,8 +1,10 @@
 package baseball.presenter;
 
+import baseball.core.BaseballCreator;
 import baseball.core.BaseballGame;
 import baseball.core.Game;
-import java.util.HashMap;
+import baseball.core.ResultMessageHandler;
+import baseball.io.BaseballConsole;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -12,7 +14,7 @@ public class GameFinder {
     private final Map<Integer, Game> games = new LinkedHashMap<>();
 
     public GameFinder() {
-        games.put(1, new BaseballGame());
+        games.put(1, BaseballGame.of(new BaseballConsole(), new BaseballCreator(), new ResultMessageHandler()));
     }
 
     public Game findBy(int gameNumber) {
