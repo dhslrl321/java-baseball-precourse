@@ -5,6 +5,7 @@ import java.util.List;
 public class Baseball {
 
     private final List<Integer> randoms;
+    private final Result result = new Result();
 
     private Baseball(List<Integer> randoms) {
         this.randoms = randoms;
@@ -19,32 +20,29 @@ public class Baseball {
     }
 
     public Result compareFrom(UserShot userShot) {
-        Result result = new Result();
 
         List<Integer> numbers = userShot.getNumbers();
 
         for (int i = 0; i < randoms.size(); i++) {
             Integer randomNumber = randoms.get(i);
-            addJudgementToResult(result, randomNumber, numbers, i);
+            addJudgementToResult(randomNumber, numbers, i);
         }
         return result;
     }
 
     private void addJudgementToResult(
-            Result result,
             int randomNumber,
             List<Integer> numbers,
             int index) {
 
         for (int i = 0; i < numbers.size(); i++) {
             Integer inputNumber = numbers.get(i);
-            addValidJudgementToResult(result, randomNumber, inputNumber, i, index);
+            addValidJudgementToResult(randomNumber, inputNumber, i, index);
         }
         result.add(JudgementType.NONE);
     }
 
     private void addValidJudgementToResult(
-            Result result,
             int randomNumber,
             int inputNumber,
             int index1,
