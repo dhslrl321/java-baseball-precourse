@@ -12,12 +12,13 @@ public class ResultMessageHandler {
     private int ballCount = 0;
     private int strikeCount = 0;
 
-    public void flush() {
+    private void flush() {
         ballCount = 0;
         strikeCount = 0;
     }
 
     public String convertToMessage(Result result) {
+        flush();
         List<JudgementType> judgements = result.judgements();
         for (JudgementType judgement : judgements) {
             counting(judgement);

@@ -47,10 +47,8 @@ public class BaseballGame implements Game {
                 if (restartNumber == 2) {
                     return false;
                 }
-                resultHandler.flush();
                 return true;
             }
-            resultHandler.flush();
         }
     }
 
