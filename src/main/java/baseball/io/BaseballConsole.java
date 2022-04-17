@@ -7,7 +7,7 @@ public class BaseballConsole {
 
     public List<Integer> queryStartGame() {
         System.out.print("숫자를 입력해주세요 : ");
-        return reader.readNumbersWithNoSpace();
+        return reader.readThreeNumbers();
     }
 
     public void printResult(String message) {
