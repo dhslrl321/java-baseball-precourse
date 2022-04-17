@@ -56,14 +56,7 @@ public class BaseballGame implements Game {
 
     private UserShot getUserShot() {
         List<Integer> inputs = console.queryStartGame();
-        validateUserInput(inputs.size());
         return UserShot.from(inputs);
-    }
-
-    private void validateUserInput(int size) {
-        if (size > 3) {
-            throw new IllegalArgumentException("입력이 잘못되었습니다. 3자리 숫자만 입력할 수 있습니다.");
-        }
     }
 
 }
