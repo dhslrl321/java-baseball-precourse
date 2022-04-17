@@ -36,20 +36,22 @@ public class BaseballGame implements Game {
         while (true) {
             UserShot userShot = getUserShot();
 
-            Result result = baseball.compareFrom(userShot);
-            String message = resultHandler.convertToMessage(result);
-
-            console.printResult(message);
+            String message = getResultMessage(baseball, userShot);
 
             if (EXIT_MESSAGE.equals(message)) {
                 console.printOutro();
                 int restartNumber = console.queryRestartGame();
-                if (restartNumber == 2) {
-                    return false;
-                }
-                return true;
+                return restartNumber != 2;
             }
         }
+    }
+
+    private String getResultMessage(Baseball baseball, UserShot userShot) {
+        Result result = baseball.compareFrom(userShot);
+        String message = resultHandler.convertToMessage(result);
+
+        console.printResult(message);
+        return message;
     }
 
     private UserShot getUserShot() {
@@ -63,4 +65,5 @@ public class BaseballGame implements Game {
             throw new IllegalArgumentException("입력이 잘못되었습니다. 3자리 숫자만 입력할 수 있습니다.");
         }
     }
+
 }
