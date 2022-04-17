@@ -1,6 +1,5 @@
 package baseball.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Baseball {
@@ -26,19 +25,30 @@ public class Baseball {
 
         for (int i = 0; i < randoms.size(); i++) {
             Integer randomNumber = randoms.get(i);
-            for (int j = 0; j < numbers.size(); j++) {
-                Integer inputNumber = numbers.get(j);
-
-                if (randomNumber.equals(inputNumber)) {
-                    if (i == j) {
-                        result.add(JudgementType.STRIKE);
-                        continue;
-                    }
-                    result.add(JudgementType.BALL);
-                }
-            }
-            result.add(JudgementType.NONE);
+            handleResult(result, randomNumber, numbers, i);
         }
         return result;
+    }
+
+    private void handleResult(Result result, int randomNumber, List<Integer> numbers, int index) {
+        for (int i = 0; i < numbers.size(); i++) {
+            Integer inputNumber = numbers.get(i);
+            judge(result, randomNumber, inputNumber, i, index);
+        }
+        result.add(JudgementType.NONE);
+    }
+
+    private void judge(Result result, int randomNumber, int inputNumber, int index1, int index2) {
+        if (randomNumber == inputNumber) {
+            JudgementType judgementByIndex = getValidJudgement(index1, index2);
+            result.add(judgementByIndex);
+        }
+    }
+
+    private JudgementType getValidJudgement(int index1, int index2) {
+        if (index1 == index2) {
+            return JudgementType.STRIKE;
+        }
+        return JudgementType.BALL;
     }
 }

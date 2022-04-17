@@ -1,17 +1,15 @@
 package baseball.domain;
 
-import static baseball.domain.JudgementType.*;
+import static baseball.domain.JudgementType.BALL;
+import static baseball.domain.JudgementType.NONE;
+import static baseball.domain.JudgementType.STRIKE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 
 class BaseballTest {
 
@@ -61,6 +59,16 @@ class BaseballTest {
         Result result = sut.compareFrom(userShot);
 
         assertThat(result.judgements()).contains(STRIKE, STRIKE, STRIKE);
+    }
+
+    @Test
+    void 정답중_둘이_숫자만_같은_경우() {
+        List<Integer> numbersBy = createNumbersBy(3, 1, 5);
+
+        UserShot userShot = UserShot.from(numbersBy);
+        Result result = sut.compareFrom(userShot);
+
+        assertThat(result.judgements()).contains(NONE, BALL, BALL);
     }
 
     private List<Integer> createNumbersBy(Integer ...integers) {
