@@ -36,7 +36,7 @@ public class BaseballGame implements Game {
         while (true) {
             UserShot userShot = getUserShot();
 
-            String message = getResultMessage(baseball, userShot);
+            String message = judge(baseball, userShot);
 
             if (EXIT_MESSAGE.equals(message)) {
                 console.printOutro();
@@ -46,7 +46,7 @@ public class BaseballGame implements Game {
         }
     }
 
-    private String getResultMessage(Baseball baseball, UserShot userShot) {
+    private String judge(Baseball baseball, UserShot userShot) {
         Result result = baseball.compareFrom(userShot);
         String message = resultHandler.convertToMessage(result);
 
