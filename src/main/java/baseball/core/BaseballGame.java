@@ -44,10 +44,15 @@ public class BaseballGame implements Game {
 
             if (EXIT_MESSAGE.equals(message)) {
                 console.printOutro();
-                break;
+                int restartNumber = console.queryRestartGame();
+                if (restartNumber == 2) {
+                    return false;
+                } else {
+                    resultHandler.flush();
+                    return true;
+                }
             }
             resultHandler.flush();
         }
-        return false;
     }
 }
