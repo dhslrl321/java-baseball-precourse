@@ -12,4 +12,8 @@ public class UserShot {
     public static UserShot from(List<Integer> numbers) {
         return new UserShot(numbers);
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }
