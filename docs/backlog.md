@@ -8,7 +8,8 @@
 - [x] `BL-004`
 - [x] `BL-005`
 - [x] `BL-006`
-- [ ] `BL-007`
+- [x] `BL-007`
+- [ ] `BL-008`
 
 # Backlog
 
@@ -26,9 +27,12 @@
   - Intellij 에 Code-Style 을 적용한다
 - `BL-005`
   - Presenter 모듈에 대해서 구현한다.
-  - [github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/1)
+  - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/1)
 - `BL-006`
   - BaseballGame 의 입출력 모듈을 구현한다.
-  - [github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/3)
+  - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/3)
 - `BL-007`
   - BaseballGame 에 대해서 구현한다.
+  - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/4)
+- `BL-008`
+  - BaseballGame 과 Presenter 를 연결한다.
