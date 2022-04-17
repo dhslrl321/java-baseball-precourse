@@ -39,4 +39,5 @@
   - BaseballGame 과 Presenter 를 연결한다.
   - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/5)
 - `BL-009`
-  - 프로젝트의 전체적인 리펙토링을 진행한다.
+  - BaseballGame 의 리펙토링을 진행한다.
+  - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/6)
