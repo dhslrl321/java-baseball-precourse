@@ -1,6 +1,7 @@
 package baseball.core;
 
-import static baseball.domain.JudgementType.*;
+import static baseball.domain.JudgementType.BALL;
+import static baseball.domain.JudgementType.STRIKE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import baseball.domain.JudgementType;
@@ -59,7 +60,7 @@ class ResultMessageHandlerTest {
         assertThat(message).isEqualTo("3볼");
     }
 
-    private List<JudgementType> createMockResultBy(JudgementType ...types) {
+    private List<JudgementType> createMockResultBy(JudgementType... types) {
         return new ArrayList<>(Arrays.asList(types));
     }
 }

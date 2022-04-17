@@ -8,8 +8,6 @@ import java.util.List;
 
 public class BaseballGame implements Game {
 
-    private final String EXIT_MESSAGE = "3스트라이크";
-
     private final BaseballConsole console;
     private final BaseballCreator baseballCreator;
     private final ResultMessageHandler resultHandler;
@@ -33,26 +31,33 @@ public class BaseballGame implements Game {
     @Override
     public boolean run() {
         Baseball baseball = baseballCreator.create();
-        while (true) {
-            List<Integer> inputs = console.queryStartGame();
-            UserShot userShot = UserShot.from(inputs);
-
-            Result result = baseball.compareFrom(userShot);
-            String message = resultHandler.convertToMessage(result);
-
-            console.printResult(message);
-
-            if (EXIT_MESSAGE.equals(message)) {
-                console.printOutro();
-                int restartNumber = console.queryRestartGame();
-                if (restartNumber == 2) {
-                    return false;
-                } else {
-                    resultHandler.flush();
-                    return true;
-                }
-            }
-            resultHandler.flush();
-        }
+        while (!loopWithJudge(baseball))
+            ;
+        int restartNumber = console.queryRestartGame();
+        return restartNumber != 2;
     }
+
+    private boolean loopWithJudge(Baseball baseball) {
+        UserShot userShot = getUserShot();
+        String message = judge(baseball, userShot);
+        return isEnd(message);
+    }
+
+    private boolean isEnd(String message) {
+        return "3스트라이크".equals(message);
+    }
+
+    private String judge(Baseball baseball, UserShot userShot) {
+        Result result = baseball.compareFrom(userShot);
+        String message = resultHandler.convertToMessage(result);
+
+        console.printResult(message);
+        return message;
+    }
+
+    private UserShot getUserShot() {
+        List<Integer> inputs = console.queryStartGame();
+        return UserShot.from(inputs);
+    }
+
 }

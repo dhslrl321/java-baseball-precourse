@@ -10,6 +10,7 @@
 - [x] `BL-006`
 - [x] `BL-007`
 - [x] `BL-008`
+- [ ] `BL-009`
 
 # Backlog
 
@@ -37,3 +38,6 @@
 - `BL-008`
   - BaseballGame 과 Presenter 를 연결한다.
   - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/5)
+- `BL-009`
+  - BaseballGame 의 리펙토링을 진행한다.
+  - [Github PR](https://github.com/dhslrl321/java-baseball-precourse/pull/6)
