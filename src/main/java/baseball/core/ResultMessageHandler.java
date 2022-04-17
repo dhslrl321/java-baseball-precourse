@@ -1,6 +1,7 @@
 package baseball.core;
 
-import static baseball.domain.JudgementType.*;
+import static baseball.domain.JudgementType.BALL;
+import static baseball.domain.JudgementType.STRIKE;
 
 import baseball.domain.JudgementType;
 import baseball.domain.Result;

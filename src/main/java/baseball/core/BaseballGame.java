@@ -15,8 +15,8 @@ public class BaseballGame implements Game {
     private final ResultMessageHandler resultHandler;
 
     private BaseballGame(BaseballConsole console,
-                        BaseballCreator baseballCreator,
-                        ResultMessageHandler resultHandler) {
+                         BaseballCreator baseballCreator,
+                         ResultMessageHandler resultHandler) {
 
         this.console = console;
         this.baseballCreator = baseballCreator;
@@ -33,7 +33,7 @@ public class BaseballGame implements Game {
     @Override
     public boolean run() {
         Baseball baseball = baseballCreator.create();
-        while(true) {
+        while (true) {
             List<Integer> inputs = console.queryStartGame();
             UserShot userShot = UserShot.from(inputs);
 
