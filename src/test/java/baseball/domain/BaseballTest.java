@@ -17,13 +17,13 @@ class BaseballTest {
 
     @BeforeEach
     void setUp() {
-        List<Integer> numbersBy = createNumbersBy(1, 2, 3);
+        List<Integer> numbersBy = createMockNumbersBy(1, 2, 3);
         sut = Baseball.from(numbersBy);
     }
 
     @Test
     void 정답과_입력이_모두_다를_경우() {
-        List<Integer> numbersBy = createNumbersBy(4, 5, 6);
+        List<Integer> numbersBy = createMockNumbersBy(4, 5, 6);
 
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
@@ -33,7 +33,7 @@ class BaseballTest {
 
     @Test
     void 정답중_하나가_위치와_숫자가_같은_경우() {
-        List<Integer> numbersBy = createNumbersBy(4, 5, 3);
+        List<Integer> numbersBy = createMockNumbersBy(4, 5, 3);
 
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
@@ -43,7 +43,7 @@ class BaseballTest {
 
     @Test
     void 정답중_둘이_위치와_숫자가_같은_경우() {
-        List<Integer> numbersBy = createNumbersBy(1, 4, 3);
+        List<Integer> numbersBy = createMockNumbersBy(1, 4, 3);
 
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
@@ -53,7 +53,7 @@ class BaseballTest {
 
     @Test
     void 정답중_셋이_위치와_숫자가_같은_경우() {
-        List<Integer> numbersBy = createNumbersBy(1, 2, 3);
+        List<Integer> numbersBy = createMockNumbersBy(1, 2, 3);
 
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
@@ -63,7 +63,7 @@ class BaseballTest {
 
     @Test
     void 정답중_둘이_숫자만_같은_경우() {
-        List<Integer> numbersBy = createNumbersBy(3, 1, 5);
+        List<Integer> numbersBy = createMockNumbersBy(3, 1, 5);
 
         UserShot userShot = UserShot.from(numbersBy);
         Result result = sut.compareFrom(userShot);
@@ -71,8 +71,7 @@ class BaseballTest {
         assertThat(result.judgements()).contains(NONE, BALL, BALL);
     }
 
-    private List<Integer> createNumbersBy(Integer ...integers) {
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(integers));
-        return numbers;
+    private List<Integer> createMockNumbersBy(Integer ...integers) {
+        return new ArrayList<>(Arrays.asList(integers));
     }
 }

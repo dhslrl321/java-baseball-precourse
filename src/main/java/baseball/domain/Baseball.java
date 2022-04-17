@@ -5,7 +5,7 @@ import java.util.List;
 public class Baseball {
 
     private final List<Integer> randoms;
-    private final Result result = new Result();
+    private final Result result = Result.empty();
 
     private Baseball(List<Integer> randoms) {
         this.randoms = randoms;
