@@ -8,8 +8,6 @@ import java.util.List;
 
 public class BaseballGame implements Game {
 
-    private final String EXIT_MESSAGE = "3스트라이크";
-
     private final BaseballConsole console;
     private final BaseballCreator baseballCreator;
     private final ResultMessageHandler resultHandler;
@@ -33,17 +31,20 @@ public class BaseballGame implements Game {
     @Override
     public boolean run() {
         Baseball baseball = baseballCreator.create();
-        while (true) {
-            UserShot userShot = getUserShot();
+        while (!loopWithJudge(baseball))
+            ;
+        int restartNumber = console.queryRestartGame();
+        return restartNumber != 2;
+    }
 
-            String message = judge(baseball, userShot);
+    private boolean loopWithJudge(Baseball baseball) {
+        UserShot userShot = getUserShot();
+        String message = judge(baseball, userShot);
+        return isEnd(message);
+    }
 
-            if (EXIT_MESSAGE.equals(message)) {
-                console.printOutro();
-                int restartNumber = console.queryRestartGame();
-                return restartNumber != 2;
-            }
-        }
+    private boolean isEnd(String message) {
+        return "3스트라이크".equals(message);
     }
 
     private String judge(Baseball baseball, UserShot userShot) {
