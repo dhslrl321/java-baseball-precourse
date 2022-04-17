@@ -21,7 +21,7 @@ class ResultMessageHandlerTest {
 
     @Test
     void 낫싱을_출력한다() {
-        Result result = Result.from(createMockResultBy(NONE, NONE, NONE));
+        Result result = Result.from(new ArrayList<>());
         String message = sut.convertToMessage(result);
 
         assertThat(message).isEqualTo("낫싱");
@@ -37,7 +37,7 @@ class ResultMessageHandlerTest {
 
     @Test
     void 볼1_스트라이크1를_출력한다() {
-        Result result = Result.from(createMockResultBy(STRIKE, NONE, BALL));
+        Result result = Result.from(createMockResultBy(STRIKE, BALL));
         String message = sut.convertToMessage(result);
 
         assertThat(message).isEqualTo("1볼 1스트라이크");
