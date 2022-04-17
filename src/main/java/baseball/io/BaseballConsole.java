@@ -6,12 +6,12 @@ public class BaseballConsole {
     private final InputReader reader = new InputReader();
 
     public List<Integer> queryStartGame() {
-        System.out.println("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력해주세요 : ");
         return reader.readNumbersWithNoSpace();
     }
 
     public void printResult(String message) {
-        System.out.println(message + "\n");
+        System.out.println(message);
     }
 
     public void printOutro() {

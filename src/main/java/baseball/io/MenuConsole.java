@@ -7,8 +7,6 @@ public class MenuConsole {
     private final InputReader reader = new InputReader();
 
     public int queryStartGame() {
-        System.out.println("게임을 시작하시겠습니까?");
-        System.out.println("yes(1) / no(2)");
         return reader.readNumber();
     }
 

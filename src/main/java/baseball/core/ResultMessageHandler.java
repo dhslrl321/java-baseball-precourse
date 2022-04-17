@@ -8,16 +8,20 @@ import java.util.List;
 
 public class ResultMessageHandler {
 
-    private int noneCount = 0;
     private int ballCount = 0;
     private int strikeCount = 0;
+
+    public void flush() {
+        ballCount = 0;
+        strikeCount = 0;
+    }
 
     public String convertToMessage(Result result) {
         List<JudgementType> judgements = result.judgements();
         for (JudgementType judgement : judgements) {
             counting(judgement);
         }
-        if (noneCount == judgements.size()) {
+        if (judgements.size() == 0) {
             return "낫싱";
         }
 
@@ -40,9 +44,6 @@ public class ResultMessageHandler {
     }
 
     private void counting(JudgementType type) {
-        if (NONE.equals(type)) {
-            noneCount++;
-        }
         if (BALL.equals(type)) {
             ballCount++;
         }

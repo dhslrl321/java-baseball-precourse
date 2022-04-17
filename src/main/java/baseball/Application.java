@@ -6,7 +6,7 @@ import baseball.presenter.Menu;
 
 public class Application {
     public static void main(String[] args) {
-        Menu menu = Menu.of(new MenuConsole(), new GameFinder());
+        Menu menu = Menu.from(new GameFinder());
         while(menu.loop());
     }
 }

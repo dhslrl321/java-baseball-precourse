@@ -46,6 +46,7 @@ public class BaseballGame implements Game {
                 console.printOutro();
                 break;
             }
+            resultHandler.flush();
         }
         return false;
     }

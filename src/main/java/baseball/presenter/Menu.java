@@ -4,27 +4,17 @@ import baseball.core.Game;
 import baseball.io.MenuConsole;
 
 public class Menu {
-    private final MenuConsole console;
     private final Game game;
 
-    public static Menu of(MenuConsole console, GameFinder gameFinder) {
-        return new Menu(console, gameFinder);
+    public static Menu from(GameFinder gameFinder) {
+        return new Menu(gameFinder);
     }
 
-    private Menu(MenuConsole console, GameFinder gameFinder) {
-        this.console = console;
+    private Menu(GameFinder gameFinder) {
         this.game = gameFinder.findBy(1);
     }
 
     public boolean loop() {
-        int startQueryNumber = console.queryStartGame();
-
-        validateStartQueryNumber(startQueryNumber);
-
-        if (startQueryNumber != 1) {
-            return false;
-        }
-
         while (game.run());
         return true;
     }
