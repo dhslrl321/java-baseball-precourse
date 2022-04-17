@@ -16,10 +16,12 @@ public class InputReader {
     }
 
     public List<Integer> readThreeNumbers() {
-
         String input = Console.readLine();
-        String[] numberString = input.split("");
+        return stringToList(input);
+    }
 
+    private List<Integer> stringToList(String string) {
+        String[] numberString = string.split("");
         List<Integer> numbers = new ArrayList<>();
 
         for (String s : numberString) {
