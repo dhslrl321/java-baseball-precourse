@@ -59,5 +59,4 @@ public class BaseballGame implements Game {
         List<Integer> inputs = console.queryStartGame();
         return UserShot.from(inputs);
     }
-
 }
