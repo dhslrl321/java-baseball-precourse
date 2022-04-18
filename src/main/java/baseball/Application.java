@@ -1,11 +1,11 @@
 package baseball;
 
 import baseball.presenter.GameFinder;
-import baseball.presenter.Menu;
+import baseball.presenter.GameManager;
 
 public class Application {
     public static void main(String[] args) {
-        Menu menu = Menu.from(new GameFinder());
-        menu.loop();
+        GameManager gameManager = GameManager.from(new GameFinder());
+        gameManager.start();
     }
 }
